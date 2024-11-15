@@ -1,0 +1,17 @@
+services:
+  db:
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: localhost
+    image: postgis/postgis
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - "1000:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 3s
+      retries: 10
