@@ -1,5 +1,7 @@
 ## upsert() with custom type failure (`column.split is not a function`)
 
+Issue: https://github.com/mikro-orm/mikro-orm/issues/6241
+
 Repro:
 
 1. In one terminal: `docker compose up`
